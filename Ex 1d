@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+int main() {
+    int N, K;
+    scanf("%d %d", &N, &K);
+
+    int arr[N];
+    for (int i = 0; i < N; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    // Deque to store indices
+    int deque[N];
+    int front = 0, rear = -1;
+
+    for (int i = 0; i < N; i++) {
+
+        // Remove indices that are out of the current window
+        while (front <= rear && deque[front] <= i - K) {
+            front++;
+        }
+
+        // Remove smaller elements from the back
+        while (front <= rear && arr[deque[rear]] <= arr[i]) {
+            rear--;
+        }
+
+        // Add current index
+        deque[++rear] = i;
+
+        // Print maximum when the first window is complete
+        if (i >= K - 1) {
+            printf("%d", arr[deque[front]]);
+            if (i != N - 1)
+                printf(" ");
+        }
+    }
+
+    return 0;
+}
