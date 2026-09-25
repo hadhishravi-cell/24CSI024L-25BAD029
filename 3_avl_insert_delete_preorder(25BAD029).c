@@ -1,17 +1,7 @@
 /*
  * Problem: Arthur builds an AVL tree, prints preorder traversal, deletes a
  * key, then prints preorder traversal again.
- *
- * Input format:
- *   Line 1: integer n (number of elements)
- *   Line 2: n space-separated integers to insert
- *   Line 3: integer D (value to delete)
- *
- * Output format:
- *   "Preorder of AVL tree"
- *   <preorder values, space separated>
- *   "Preorder after deletion of the element"
- *   <preorder values, space separated>
+
  */
 
 #include <stdio.h>
